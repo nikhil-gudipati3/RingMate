@@ -1,0 +1,12 @@
+http://localhost:8000/app/
+
+.venv\Scripts\python -m uvicorn server.main:app --port 8000
+
+tailscale funnel --bg http://localhost:8000
+D:\Downloads\cloudflared.exe tunnel --url http://localhost:8000
+
+
+.venv\Scripts\python laptop_agent/agent.py laptop_agent/agent_config.json
+
+powershell -ExecutionPolicy Bypass -File .\Build-ExotelUrl.ps1 cosmetic-cincinnati-summit-discussions.trycloudflare.com
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RingMate Console — Live activity</title>
+<meta name="description" content="Live view of the RingMate agent: command queue, action log, and agent status.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="console">
+<div class="wrap">
+
+  <header class="topbar">
+    <a class="wordmark" href="index.html">RingMate<span class="dot">.</span></a>
+    <span class="status-pill offline" id="console-status-pill" title="Connection to server">
+      <span class="pulse-dot"></span><span id="console-status-text">Connecting</span>
+    </span>
+  </header>
+  <p class="console-back"><a href="index.html">&larr; Back to voice</a></p>
+
+  <section class="console-head">
+    <div class="live-tag">● Live</div>
+    <h1>Agent console</h1>
+    <p>Everything the assistant is doing right now — the command queue, the action log, and agent status. Project this during the demo.</p>
+  </section>
+
+  <main class="console-grid">
+    <section class="panel" aria-label="Command queue">
+      <h2>Queue<span class="count" id="queue-count"></span></h2>
+      <ul class="queue-list" id="queue-list">
+        <li class="console-empty">Waiting for activity…</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-label="Action log">
+      <h2>Action log</h2>
+      <ul class="log-stream" id="log-stream">
+        <li class="console-empty">No actions yet. Talk to the assistant and watch this space.</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-label="Agent status">
+      <h2>Status</h2>
+      <div class="status-rows" id="status-rows">
+        <div class="console-empty">Connecting to server…</div>
+      </div>
+    </section>
+  </main>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

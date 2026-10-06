@@ -1,0 +1,1228 @@
+[
+ {
+  "expect": {
+   "action": "awaiting_confirmation",
+   "args": {
+    "query": "resume"
+   },
+   "reply_contains": "resume",
+   "tool": "find_file"
+  },
+  "id": 1,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me my latest resume"
+  ]
+ },
+ {
+  "expect": {
+   "action": "awaiting_confirmation",
+   "args": {
+    "query": "resume"
+   },
+   "tool": "find_file"
+  },
+  "id": 2,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "mail me the resume I edited recently"
+  ]
+ },
+ {
+  "expect": {
+   "action": "awaiting_confirmation",
+   "args": {
+    "file_type": "pdf",
+    "query": "project report"
+   },
+   "tool": "find_file"
+  },
+  "id": 3,
+  "script": [
+   {
+    "arguments": {
+     "file_type": "pdf",
+     "query": "project report"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "can you find my project report pdf"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "assignment"
+   },
+   "tool": "find_file"
+  },
+  "id": 4,
+  "script": [
+   {
+    "arguments": {
+     "query": "assignment"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "I need my assignment document"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "photo"
+   },
+   "tool": "find_file"
+  },
+  "id": 5,
+  "script": [
+   {
+    "arguments": {
+     "query": "photo"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me the photo from yesterday"
+  ]
+ },
+ {
+  "expect": {
+   "action": "awaiting_confirmation",
+   "no_email": true,
+   "reply_contains": "Is this the file",
+   "tool": "find_file"
+  },
+  "id": 6,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "find my resume",
+   "the first one"
+  ]
+ },
+ {
+  "expect": {
+   "action": "none",
+   "no_email": true,
+   "tool": "find_file"
+  },
+  "id": 7,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "find my resume",
+   "no"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "budget"
+   },
+   "tool": "find_file"
+  },
+  "id": 8,
+  "script": [
+   {
+    "arguments": {
+     "query": "budget"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "get me the budget spreadsheet"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "meeting notes"
+   },
+   "tool": "find_file"
+  },
+  "id": 9,
+  "script": [
+   {
+    "arguments": {
+     "query": "meeting notes"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me the meeting notes"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "invoice"
+   },
+   "tool": "find_file"
+  },
+  "id": 10,
+  "script": [
+   {
+    "arguments": {
+     "query": "invoice"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "I want the invoice from last month"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "file_type": "docx"
+   },
+   "tool": "find_file"
+  },
+  "id": 11,
+  "script": [
+   {
+    "arguments": {
+     "file_type": "docx",
+     "query": "thesis"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "please locate my thesis docx file"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "query": "presentation"
+   },
+   "tool": "find_file"
+  },
+  "id": 12,
+  "script": [
+   {
+    "arguments": {
+     "query": "presentation"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "fetch the presentation I made"
+  ]
+ },
+ {
+  "expect": {
+   "action": "email_sent",
+   "args": {
+    "to": "prasad@example.com"
+   },
+   "email_to": "prasad@example.com",
+   "tool": "send_email"
+  },
+  "id": 13,
+  "script": [
+   {
+    "arguments": {
+     "body": "The demo is ready",
+     "subject": "Demo",
+     "to": "prasad@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send an email to prasad@example.com saying the demo is ready"
+  ]
+ },
+ {
+  "expect": {
+   "action": "email_sent",
+   "args": {
+    "to": "tharun@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 14,
+  "script": [
+   {
+    "arguments": {
+     "body": "About tomorrow's meeting",
+     "subject": "Meeting",
+     "to": "tharun@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "email tharun@example.com about tomorrow's meeting"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "prof@college.edu"
+   },
+   "tool": "send_email"
+  },
+  "id": 15,
+  "script": [
+   {
+    "arguments": {
+     "body": "I submitted the assignment",
+     "subject": "Assignment",
+     "to": "prof@college.edu"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "mail my professor at prof@college.edu that I submitted the assignment"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "mom@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 16,
+  "script": [
+   {
+    "arguments": {
+     "body": "I'll call tonight",
+     "subject": "Call",
+     "to": "mom@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send a quick email to mom@example.com saying I'll call tonight"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "team@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 17,
+  "script": [
+   {
+    "arguments": {
+     "body": "The build is green",
+     "subject": "Build",
+     "to": "team@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "write to team@example.com: the build is green"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "subject": "hello",
+    "to": "friend@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 18,
+  "script": [
+   {
+    "arguments": {
+     "body": "just checking in",
+     "subject": "hello",
+     "to": "friend@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send email to friend@example.com with subject hello and body just checking in"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "study@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 19,
+  "script": [
+   {
+    "arguments": {
+     "body": "Here are the notes",
+     "subject": "Notes",
+     "to": "study@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "can you mail the notes to study@example.com"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "boss@work.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 20,
+  "script": [
+   {
+    "arguments": {
+     "body": "I'm running late",
+     "subject": "Running late",
+     "to": "boss@work.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send an email to boss@work.com saying I'm running late"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "nikhil@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 21,
+  "script": [
+   {
+    "arguments": {
+     "body": "https://example.com/demo",
+     "subject": "Demo link",
+     "to": "nikhil@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "email nikhil@example.com the demo link https://example.com/demo"
+  ]
+ },
+ {
+  "expect": {
+   "args": {
+    "to": "hr@example.com"
+   },
+   "tool": "send_email"
+  },
+  "id": 22,
+  "script": [
+   {
+    "arguments": {
+     "body": "I need leave on Friday",
+     "subject": "Leave",
+     "to": "hr@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "tell hr@example.com via email that I need leave on Friday"
+  ]
+ },
+ {
+  "expect": {
+   "action": "none",
+   "tool": null
+  },
+  "id": 23,
+  "script": [
+   {
+    "text": "Hello! What can I do for you?",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "hello"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 24,
+  "script": [
+   {
+    "text": "I'm doing well, thanks!",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "how are you"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 25,
+  "script": [
+   {
+    "text": "I can send emails and find files on your laptop.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "what can you do"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 26,
+  "script": [
+   {
+    "text": "You're welcome!",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "thank you"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 27,
+  "script": [
+   {
+    "text": "Good morning!",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "good morning"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 28,
+  "script": [
+   {
+    "text": "I'm RingMate, your voice assistant.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "who are you"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 29,
+  "script": [
+   {
+    "text": "I only know one joke and it's about queues.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "tell me a joke"
+  ]
+ },
+ {
+  "expect": {
+   "tool": null
+  },
+  "id": 30,
+  "script": [
+   {
+    "text": "I can't check the weather, but I can email and find files!",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "what's the weather like"
+  ]
+ },
+ {
+  "expect": {
+   "no_email": true,
+   "tool": null
+  },
+  "id": 31,
+  "script": [
+   {
+    "text": "I can't delete files \u2014 I can only find them and email them with your permission.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "delete all my files"
+  ]
+ },
+ {
+  "expect": {
+   "action": "none",
+   "no_email": true,
+   "tool": "find_file"
+  },
+  "id": 32,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me my latest resume",
+   "actually never mind"
+  ]
+ },
+ {
+  "expect": {
+   "action": "clarify",
+   "no_email": true,
+   "tool": "send_email"
+  },
+  "id": 33,
+  "script": [
+   {
+    "arguments": {
+     "body": "hello",
+     "subject": "hi",
+     "to": "not-an-email"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "email not-an-email hello"
+  ]
+ },
+ {
+  "expect": {
+   "action": [
+    "none",
+    "clarify"
+   ],
+   "tool": null
+  },
+  "id": 34,
+  "script": [
+   {
+    "text": "I didn't quite get that.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "blargh flibberty gibberish xyz"
+  ]
+ },
+ {
+  "expect": {
+   "action": [
+    "none",
+    "clarify"
+   ],
+   "tool": null
+  },
+  "id": 35,
+  "script": [
+   {
+    "text": "I can't check calendars yet.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "can you check my calendar for tomorrow"
+  ]
+ },
+ {
+  "expect": {
+   "no_email": true,
+   "tool": null
+  },
+  "id": 36,
+  "script": [
+   {
+    "text": "Yes to what? I don't have anything pending.",
+    "type": "text"
+   }
+  ],
+  "turns": [
+   "yes"
+  ]
+ },
+ {
+  "expect": {
+   "action": "file_sent",
+   "email_to": "me@example.com",
+   "reply_contains": "sent",
+   "tool": "find_file"
+  },
+  "id": 37,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me my latest resume",
+   "yes"
+  ]
+ },
+ {
+  "expect": {
+   "action": "none",
+   "no_email": true,
+   "reply_contains": "won't do that"
+  },
+  "id": 38,
+  "script": [
+   {
+    "arguments": {
+     "query": "resume"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "send me my latest resume",
+   "no"
+  ]
+ },
+ {
+  "expect": {
+   "action": "email_sent",
+   "email_to": "prasad@example.com",
+   "tool": "send_email"
+  },
+  "id": 39,
+  "script": [
+   {
+    "arguments": {
+     "body": "hi",
+     "subject": "Hi",
+     "to": "prasad@example.com"
+    },
+    "name": "send_email",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "email prasad@example.com saying hi"
+  ]
+ },
+ {
+  "expect": {
+   "action": "file_sent",
+   "tool": "find_file"
+  },
+  "id": 40,
+  "script": [
+   {
+    "arguments": {
+     "query": "project report"
+    },
+    "name": "find_file",
+    "type": "tool_call"
+   }
+  ],
+  "turns": [
+   "find my project report",
+   "yes"
+  ]
+ },
+ {
+  "id": 41,
+  "turns": [
+   "what time is it"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "get_datetime",
+    "arguments": {}
+   }
+  ],
+  "expect": {
+   "tool": "get_datetime",
+   "action": "none",
+   "reply_contains": "It's"
+  }
+ },
+ {
+  "id": 42,
+  "turns": [
+   "what is the capital of Japan"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "web_search",
+    "arguments": {
+     "query": "capital of Japan"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "web_search",
+   "action": "none",
+   "reply_contains": "Tokyo"
+  }
+ },
+ {
+  "id": 43,
+  "turns": [
+   "what's on my calendar today"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "check_calendar",
+    "arguments": {
+     "day": "today"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "check_calendar",
+   "action": "none",
+   "reply_contains": "Dentist"
+  }
+ },
+ {
+  "id": 44,
+  "turns": [
+   "remember that my keys are in the drawer"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "save_note",
+    "arguments": {
+     "text": "my keys are in the drawer"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "save_note",
+   "action": "none",
+   "reply_contains": "remember"
+  }
+ },
+ {
+  "id": 45,
+  "turns": [
+   "remember my keys are in the drawer",
+   "what did I ask you to remember"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "save_note",
+    "arguments": {
+     "text": "my keys are in the drawer"
+    }
+   },
+   {
+    "type": "tool_call",
+    "name": "read_notes",
+    "arguments": {}
+   }
+  ],
+  "expect": {
+   "tool": "read_notes",
+   "action": "none",
+   "reply_contains": "keys are in the drawer"
+  }
+ },
+ {
+  "id": 46,
+  "turns": [
+   "what do I have on my calendar tomorrow"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "check_calendar",
+    "arguments": {
+     "day": "tomorrow"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "check_calendar",
+   "args": {
+    "day": "tomorrow"
+   },
+   "action": "none",
+   "reply_contains": "Dentist"
+  }
+ },
+ {
+  "id": 47,
+  "turns": [
+   "search the web for something nobody knows"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "web_search",
+    "arguments": {
+     "query": "something nobody knows"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "web_search",
+   "action": "none",
+   "reply_contains": "couldn't search"
+  }
+ },
+ {
+  "id": 48,
+  "turns": [
+   "check my schedule"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "check_calendar",
+    "arguments": {
+     "day": "today"
+    }
+   }
+  ],
+  "calendar_url": "",
+  "expect": {
+   "tool": "check_calendar",
+   "action": "none",
+   "reply_contains": "isn't connected"
+  }
+ },
+ {
+  "id": 49,
+  "turns": [
+   "email prasad@example.com the meeting notes"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "send_email",
+    "arguments": {
+     "to": "prasad@example.com",
+     "subject": "Meeting notes",
+     "body": "Notes from today."
+    }
+   }
+  ],
+  "expect": {
+   "tool": "send_email",
+   "action": "email_sent",
+   "email_to": "prasad@example.com"
+  }
+ },
+ {
+  "id": 50,
+  "turns": [
+   "what day is it today"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "get_datetime",
+    "arguments": {}
+   }
+  ],
+  "expect": {
+   "tool": "get_datetime",
+   "action": "none",
+   "reply_contains": "on"
+  }
+ },
+ {
+  "id": 51,
+  "turns": [
+   "what is 15 percent of 240"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "calculate",
+    "arguments": {
+     "expression": "15 * 240 / 100"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "calculate",
+   "reply_contains": "36"
+  }
+ },
+ {
+  "id": 52,
+  "turns": [
+   "what is the square root of 144 plus 5"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "calculate",
+    "arguments": {
+     "expression": "sqrt(144) + 5"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "calculate",
+   "reply_contains": "17"
+  }
+ },
+ {
+  "id": 53,
+  "turns": [
+   "remember to buy milk",
+   "forget about the milk"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "save_note",
+    "arguments": {
+     "text": "buy milk"
+    }
+   },
+   {
+    "type": "tool_call",
+    "name": "delete_note",
+    "arguments": {
+     "query": "milk"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "delete_note",
+   "reply_contains": "forgotten"
+  }
+ },
+ {
+  "id": 54,
+  "turns": [
+   "read my meeting notes"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "read_file",
+    "arguments": {
+     "query": "meeting"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "read_file",
+   "reply_contains": "Friday"
+  }
+ },
+ {
+  "id": 55,
+  "turns": [
+   "read my resume file",
+   "the second one"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "read_file",
+    "arguments": {
+     "query": "resume"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "read_file",
+   "reply_contains": "resume_v2.pdf"
+  }
+ },
+ {
+  "id": 56,
+  "turns": [
+   "what are my recent files"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "list_files",
+    "arguments": {
+     "limit": 5
+    }
+   }
+  ],
+  "expect": {
+   "tool": "list_files",
+   "reply_contains": "budget.xlsx"
+  }
+ },
+ {
+  "id": 57,
+  "turns": [
+   "find the nothinghere file"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "find_file",
+    "arguments": {
+     "query": "nothinghere"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "find_file",
+   "action": "awaiting_confirmation",
+   "reply_contains": "Did you mean",
+   "no_email": true
+  }
+ },
+ {
+  "id": 58,
+  "turns": [
+   "find the nothinghere file",
+   "yes"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "find_file",
+    "arguments": {
+     "query": "nothinghere"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "find_file",
+   "action": "file_sent",
+   "email_to": "me@example.com"
+  }
+ },
+ {
+  "id": 59,
+  "turns": [
+   "find the zzz_nope file"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "find_file",
+    "arguments": {
+     "query": "zzz_nope"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "find_file",
+   "action": "none",
+   "reply_contains": "couldn't find anything like",
+   "no_email": true
+  }
+ },
+ {
+  "id": 60,
+  "turns": [
+   "what is 7 divided by 0"
+  ],
+  "script": [
+   {
+    "type": "tool_call",
+    "name": "calculate",
+    "arguments": {
+     "expression": "7 / 0"
+    }
+   }
+  ],
+  "expect": {
+   "tool": "calculate",
+   "reply_contains": "couldn't work"
+  }
+ }
+]

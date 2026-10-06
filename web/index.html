@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RingMate — Talk to your assistant</title>
+<meta name="description" content="RingMate is a voice-first personal AI agent. Say what you need — your files arrive in your inbox.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a class="wordmark" href="index.html">RingMate<span class="dot">.</span></a>
+    <div class="topbar-right">
+      <span class="status-pill offline" id="status-pill" title="Checking server…">
+        <span class="pulse-dot"></span><span id="status-text">Connecting</span>
+      </span>
+      <button class="icon-btn" id="mute-btn" title="Mute voice replies" aria-label="Mute voice replies" aria-pressed="false">
+        <svg id="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.6 5.4a9 9 0 0 1 0 13.2"/></svg>
+        <svg id="icon-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Call it.<br><span class="accent-word">It's done.</span></h1>
+    <p class="subline">Your personal AI assistant right in your browser. Start a voice call and say what you need in plain words — like “send me my latest resume” or “what's on my calendar today” — and it finds files on your laptop, emails them to you, checks your schedule, remembers notes, and looks things up.</p>
+  </section>
+
+  <!-- Prominent Start Voice Call Action -->
+  <section class="call-starter-zone">
+    <button class="btn-start-call" id="start-call-btn" type="button" onclick="window.startRingMateCall &amp;&amp; window.startRingMateCall()">
+      <span class="call-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span class="call-btn-text">
+        <span class="call-btn-title">Start Voice Call</span>
+        <span class="call-btn-sub">Hands-free voice conversation with RingMate</span>
+      </span>
+    </button>
+    <div class="call-starter-hint">
+      <strong>Try saying:</strong> “send me my latest resume” · “what's on my calendar today” · “remember my keys are in the drawer”
+    </div>
+  </section>
+
+  <!-- Transcript Area for past or ongoing messages -->
+  <section class="transcript" id="transcript" aria-live="polite" aria-label="Conversation">
+    <div class="transcript-empty" id="transcript-empty">
+      <strong>Ready to talk:</strong> Click <em>Start Voice Call</em> above to speak naturally, or type below.
+    </div>
+  </section>
+
+  <!-- Fallback typing composer -->
+  <form class="composer" id="composer" onsubmit="event.preventDefault(); return false;">
+    <input type="text" id="composer-input" placeholder="Or type a request here instead of voice…" autocomplete="off" aria-label="Type your message">
+    <button type="submit" class="btn btn-send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Send
+    </button>
+  </form>
+  <p class="composer-hint" id="composer-hint">RingMate speaks replies aloud through your speakers · files stay private on your laptop.</p>
+
+  <footer class="footer">
+    <span class="lock">Your files never leave your laptop without your explicit yes.</span><br>
+    RingMate · voice-first personal AI agent · built by Nikhil, Prasad &amp; Tharun ·
+    <a href="console.html" class="footer-link">Agent console</a>
+  </footer>
+
+</div>
+
+<!-- ==========================================================================
+     PHONE CALL SCREEN (Active In-Call Interface)
+     ========================================================================== -->
+<div class="phone-call-overlay" id="phone-call-overlay" style="display:none;" aria-modal="true" role="dialog">
+  <div class="phone-call-card">
+    <div class="phone-call-header">
+      <div class="phone-security-badge">
+        <span class="pulse-dot"></span>
+        <span id="phone-badge-text">In Call · Connected</span>
+      </div>
+      <button class="phone-close-btn" id="phone-close-btn" title="End call" aria-label="End call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="phone-caller-zone">
+      <div class="phone-avatar-wrap" id="phone-avatar-wrap">
+        <div class="phone-avatar-pulse"></div>
+        <div class="phone-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </div>
+      <h2 class="phone-caller-name">RingMate</h2>
+      <p class="phone-caller-sub">Personal AI Assistant</p>
+      <div class="phone-call-timer" id="phone-call-timer">00:00</div>
+      <div class="phone-call-status" id="phone-call-status">Connecting…</div>
+    </div>
+
+    <!-- Animated Audio Waveform -->
+    <div class="phone-visualizer-wrap">
+      <canvas id="phone-wave" width="400" height="64" aria-hidden="true"></canvas>
+    </div>
+
+    <!-- Real-time Live Captions on Phone Call Screen -->
+    <div class="phone-captions-box" id="phone-captions-box">
+      <div class="phone-caption-msg agent" id="phone-last-agent-msg">Connecting to RingMate…</div>
+      <div class="phone-caption-msg user" id="phone-last-user-msg" style="display:none;"></div>
+      <div class="phone-actions" id="phone-actions" style="display:none;">
+        <button class="btn btn-yes" id="phone-btn-yes" type="button">Yes, send it</button>
+        <button class="btn btn-no" id="phone-btn-no" type="button">No</button>
+      </div>
+    </div>
+
+    <!-- Phone Controls -->
+    <div class="phone-controls">
+      <button class="phone-circle-btn phone-btn-talk" id="phone-talk-btn" type="button" title="Hold to Talk" aria-label="Hold to Talk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        <span>Talk</span>
+      </button>
+
+      <button class="phone-circle-btn" id="phone-mute-btn" type="button" title="Mute Microphone" aria-label="Mute Microphone">
+        <svg id="phone-mic-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        <svg id="phone-mic-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        <span>Mute</span>
+      </button>
+
+      <button class="phone-circle-btn phone-btn-hangup" id="phone-hangup-btn" type="button" title="End Call" aria-label="End Call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>
+        <span>End</span>
+      </button>
+
+      <button class="phone-circle-btn" id="phone-log-btn" type="button" title="Activity Log" aria-label="Activity Log">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        <span>Log</span>
+        <span class="phone-log-badge" id="phone-log-count" style="display:none;">0</span>
+      </button>
+    </div>
+
+    <!-- In-Call Typing Drawer -->
+    <div class="phone-in-call-composer" id="phone-composer">
+      <input type="text" id="phone-input" placeholder="Or type a message during call…" autocomplete="off">
+      <button type="button" class="btn-phone-send" id="btn-phone-send" aria-label="Send" onclick="var el=document.getElementById('phone-input'); if(el &amp;&amp; el.value.trim()){ window.sendRingMateTurn &amp;&amp; window.sendRingMateTurn(el.value.trim()); }">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+
+    <!-- Real-time activity log drawer: every voice action lands here -->
+    <div class="phone-log-drawer" id="phone-log-drawer" hidden>
+      <div class="phone-log-head">
+        <span class="phone-log-title">Activity log</span>
+        <button type="button" class="phone-log-mini-btn" id="phone-log-copy">Copy</button>
+        <button type="button" class="phone-log-mini-btn" id="phone-log-clear">Clear</button>
+        <button type="button" class="phone-log-mini-btn" id="phone-log-close" aria-label="Close log">✕</button>
+      </div>
+      <div class="phone-log-list" id="phone-log-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="vendor/vad.bundle.js?v=4.0.19"></script>
+<script src="voice_turn.js?v=4.0.19"></script>
+<script src="voice4.js?v=4.0.19"></script>
+<script src="app.js?v=4.0.19"></script>
+</body>
+</html>

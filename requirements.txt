@@ -1,0 +1,13 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+python-dotenv>=1.0
+httpx>=0.27
+requests>=2.31
+python-multipart>=0.0.9
+# Voice pipeline for the browser call UI:
+#  - faster-whisper: local speech-to-text fallback (tiny.en, CPU)
+#  - edge-tts: neural text-to-speech for spoken replies
+faster-whisper>=1.0
+edge-tts>=6.0
+pytest>=8.0
