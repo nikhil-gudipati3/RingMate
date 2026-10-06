@@ -2,7 +2,7 @@
 
 Talk to it over a **real phone call** or in a browser voice call: *"send me my latest resume"* — it finds the file on your laptop, asks for confirmation, and emails it to you. It can also check your Google Calendar, remember notes and facts about you, look up live information on the web, and speak Telugu and nine other Indian languages.
 
-## Two ways to talk
+## Two ways to talk. 
 
 | | Browser calling | Phone calling |
 |---|---|---|
