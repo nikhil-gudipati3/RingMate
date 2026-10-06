@@ -6,3 +6,9 @@ __pycache__/
 .pytest_cache/
 agent_config.json
 .DS_Store
+google_token.json
+notes.json
+tmp/
+*.txt
+Build-ExotelUrl.ps1
+start.txt
