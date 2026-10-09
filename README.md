@@ -125,7 +125,7 @@ When several files match, the agent names the top three and lets you pick ("the 
 | Web search, calendar, notes | `server/websearch_tool.py, calendar_tool.py, notes_tool.py` | Nikhil |
 | Email delivery | `server/email_tool.py` | Tharun — Voice & API Specialist |
 | Web UI + voice pipeline | `web/`, `server/web_routes.py` | Tharun |
-| Laptop agent, file resolver, offline queue | `laptop_agent/` | Prasad — Backend Developer |
+| Laptop agent, file resolver, offline queue | `laptop_agent/` | Bhavani Prasad — Backend Developer |
 
 ## Safety rules (enforced in code, not just docs)
 
